@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h1>{% trans "Hello, There!!" %}</h1>
+    <h2>  This is a demo of using docker containers along with NGINX, Gunicorn and HuggingFace. In this demo,
+     I perform inference on hugging face pipeline to generate text with a given prompt. I use GPT-2 model here.
+        Text generation is an important task in chatbots and so we demonstrate, how a given prompt input results
+        in a textual generated response. The new thing that I learnt through this project is how to run a webapp using NGINX, Gunicorn and Django, so that the server can
+    handle multiple requests from the user.</h2>
+
+    <h3>Components used</h3>
+    <ul>
+    <li>Gunicorn as Web Server Gateway Interface</li>
+    <li>Django - python framework for web app development</li>
+    <li>NGINX as reverse proxy</li>
+    <li>HuggingFace Transformers library</li>
+    </ul>
+    <h3>Press the button below to enter the text generator</h3>
+
+    <form action="data" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Enter">
+</form>
+{% endblock %}
